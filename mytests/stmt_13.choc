@@ -1,0 +1,14 @@
+true_val if cond1 else false_val
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.if_expr() {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "cond1"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "true_val"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "false_val"]
+# CHECK-NEXT:     }
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

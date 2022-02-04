@@ -1,0 +1,21 @@
+expr1 if condition1 else expr2 if condition2 else expr3
+
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.if_expr() {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "condition1"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "expr1"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.if_expr() {
+# CHECK-NEXT:         choco.ast.id_expr() ["id" = "condition2"]
+# CHECK-NEXT:       } {
+# CHECK-NEXT:         choco.ast.id_expr() ["id" = "expr2"]
+# CHECK-NEXT:       } {
+# CHECK-NEXT:         choco.ast.id_expr() ["id" = "expr3"]
+# CHECK-NEXT:       }
+# CHECK-NEXT:     }
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

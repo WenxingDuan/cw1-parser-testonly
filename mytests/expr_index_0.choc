@@ -1,0 +1,12 @@
+a[0]
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.index_expr() {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "a"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.literal() ["value" = 0 : !i32]
+# CHECK-NEXT:     }
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

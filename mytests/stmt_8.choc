@@ -1,0 +1,20 @@
+a and b and c and d
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.binary_expr() ["op" = "and"] {
+# CHECK-NEXT:       choco.ast.binary_expr() ["op" = "and"] {
+# CHECK-NEXT:         choco.ast.binary_expr() ["op" = "and"] {
+# CHECK-NEXT:           choco.ast.id_expr() ["id" = "a"]
+# CHECK-NEXT:         } {
+# CHECK-NEXT:           choco.ast.id_expr() ["id" = "b"]
+# CHECK-NEXT:         }
+# CHECK-NEXT:       } {
+# CHECK-NEXT:         choco.ast.id_expr() ["id" = "c"]
+# CHECK-NEXT:       }
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "d"]
+# CHECK-NEXT:     }
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

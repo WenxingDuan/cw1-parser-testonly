@@ -1,0 +1,15 @@
+for x in xs:
+	pass
+
+
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.for() ["iter_name" = "x"] {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "xs"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.pass()
+# CHECK-NEXT:     }
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

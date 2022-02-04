@@ -1,0 +1,16 @@
+# RUN: choco-opt %s | filecheck %s
+
+foo : str = "p"
+
+
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {
+# CHECK-NEXT:     choco.ast.var_def() {
+# CHECK-NEXT:       choco.ast.typed_var() ["var_name" = "foo"] {
+# CHECK-NEXT:         choco.ast.type_name() ["type_name" = "str"]
+# CHECK-NEXT:       }
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.literal() ["value" = "p"]
+# CHECK-NEXT:     }
+# CHECK-NEXT:   } {}
+# CHECK-NEXT: }

@@ -1,0 +1,10 @@
+return 2
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.return() {
+# CHECK-NEXT:       choco.ast.literal() ["value" = 2 : !i32]
+# CHECK-NEXT:     }
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

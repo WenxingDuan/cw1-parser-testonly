@@ -1,0 +1,8 @@
+f()
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.call_expr() ["func" = "f"] {}
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

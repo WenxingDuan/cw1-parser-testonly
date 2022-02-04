@@ -1,0 +1,29 @@
+i1 : int = 114
+i2 : int = 514
+i1 = i2
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {
+# CHECK-NEXT:     choco.ast.var_def() {
+# CHECK-NEXT:       choco.ast.typed_var() ["var_name" = "i1"] {
+# CHECK-NEXT:         choco.ast.type_name() ["type_name" = "int"]
+# CHECK-NEXT:       }
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.literal() ["value" = 114 : !i32]
+# CHECK-NEXT:     }
+# CHECK-NEXT:     choco.ast.var_def() {
+# CHECK-NEXT:       choco.ast.typed_var() ["var_name" = "i2"] {
+# CHECK-NEXT:         choco.ast.type_name() ["type_name" = "int"]
+# CHECK-NEXT:       }
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.literal() ["value" = 514 : !i32]
+# CHECK-NEXT:     }
+# CHECK-NEXT:   } {
+# CHECK-NEXT:     choco.ast.assign() {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "i1"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "i2"]
+# CHECK-NEXT:     }
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

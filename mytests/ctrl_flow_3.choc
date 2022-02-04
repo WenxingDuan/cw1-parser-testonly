@@ -1,0 +1,22 @@
+if cond :
+	if_block
+elif elif_cond_1:
+	elif_block_1
+
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK-NEXT: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.if() {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "cond"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "if_block"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.if() {
+# CHECK-NEXT:         choco.ast.id_expr() ["id" = "elif_cond_1"]
+# CHECK-NEXT:       } {
+# CHECK-NEXT:         choco.ast.id_expr() ["id" = "elif_block_1"]
+# CHECK-NEXT:       } {}
+# CHECK-NEXT:     }
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

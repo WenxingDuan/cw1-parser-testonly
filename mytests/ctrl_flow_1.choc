@@ -1,0 +1,13 @@
+if cond :
+	if_block
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.if() {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "cond"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "if_block"]
+# CHECK-NEXT:     } {}
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

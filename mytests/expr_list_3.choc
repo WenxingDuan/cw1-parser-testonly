@@ -1,0 +1,14 @@
+[a,s,d,f]
+
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.list_expr() {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "a"]
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "s"]
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "d"]
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "f"]
+# CHECK-NEXT:     }
+# CHECK-NEXT:   }
+# CHECK-NEXT: }

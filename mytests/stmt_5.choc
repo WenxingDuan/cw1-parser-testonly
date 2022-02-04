@@ -1,0 +1,48 @@
+a = b = C = d = i1 = I2 = 42
+1 = 2 = 3 = 4
+
+
+
+# RUN: choco-opt %s | filecheck %s
+# CHECK: module() {
+# CHECK-NEXT:   choco.ast.program() {} {
+# CHECK-NEXT:     choco.ast.assign() {
+# CHECK-NEXT:       choco.ast.id_expr() ["id" = "a"]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.assign() {
+# CHECK-NEXT:         choco.ast.id_expr() ["id" = "b"]
+# CHECK-NEXT:       } {
+# CHECK-NEXT:         choco.ast.assign() {
+# CHECK-NEXT:           choco.ast.id_expr() ["id" = "C"]
+# CHECK-NEXT:         } {
+# CHECK-NEXT:           choco.ast.assign() {
+# CHECK-NEXT:             choco.ast.id_expr() ["id" = "d"]
+# CHECK-NEXT:           } {
+# CHECK-NEXT:             choco.ast.assign() {
+# CHECK-NEXT:               choco.ast.id_expr() ["id" = "i1"]
+# CHECK-NEXT:             } {
+# CHECK-NEXT:               choco.ast.assign() {
+# CHECK-NEXT:                 choco.ast.id_expr() ["id" = "I2"]
+# CHECK-NEXT:               } {
+# CHECK-NEXT:                 choco.ast.literal() ["value" = 42 : !i32]
+# CHECK-NEXT:               }
+# CHECK-NEXT:             }
+# CHECK-NEXT:           }
+# CHECK-NEXT:         }
+# CHECK-NEXT:       }
+# CHECK-NEXT:     }
+# CHECK-NEXT:     choco.ast.assign() {
+# CHECK-NEXT:       choco.ast.literal() ["value" = 1 : !i32]
+# CHECK-NEXT:     } {
+# CHECK-NEXT:       choco.ast.assign() {
+# CHECK-NEXT:         choco.ast.literal() ["value" = 2 : !i32]
+# CHECK-NEXT:       } {
+# CHECK-NEXT:         choco.ast.assign() {
+# CHECK-NEXT:           choco.ast.literal() ["value" = 3 : !i32]
+# CHECK-NEXT:         } {
+# CHECK-NEXT:           choco.ast.literal() ["value" = 4 : !i32]
+# CHECK-NEXT:         }
+# CHECK-NEXT:       }
+# CHECK-NEXT:     }
+# CHECK-NEXT:   }
+# CHECK-NEXT: }
