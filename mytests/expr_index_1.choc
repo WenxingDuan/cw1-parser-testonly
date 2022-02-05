@@ -1,9 +1,9 @@
-a[1] + 2
+a[1][2]
 
 # RUN: choco-opt %s | filecheck %s
 # CHECK: module() {
 # CHECK-NEXT:   choco.ast.program() {} {
-# CHECK-NEXT:     choco.ast.binary_expr() ["op" = "+"] {
+# CHECK-NEXT:     choco.ast.index_expr() {
 # CHECK-NEXT:       choco.ast.index_expr() {
 # CHECK-NEXT:         choco.ast.id_expr() ["id" = "a"]
 # CHECK-NEXT:       } {
