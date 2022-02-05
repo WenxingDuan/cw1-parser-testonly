@@ -2,7 +2,7 @@
 
 Only tests. 
 
-Usage: 
+UsⒶge: 
 
 `source ./set-path.sh`
 
