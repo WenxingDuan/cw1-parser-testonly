@@ -1,4 +1,4 @@
-1 + 2 * 3
+1 + a[3]
 
 
 
@@ -8,8 +8,8 @@
 # CHECK-NEXT:     choco.ast.binary_expr() ["op" = "+"] {
 # CHECK-NEXT:       choco.ast.literal() ["value" = 1 : !i32]
 # CHECK-NEXT:     } {
-# CHECK-NEXT:       choco.ast.binary_expr() ["op" = "*"] {
-# CHECK-NEXT:         choco.ast.literal() ["value" = 2 : !i32]
+# CHECK-NEXT:       choco.ast.index_expr() {
+# CHECK-NEXT:         choco.ast.id_expr() ["id" = "a"]
 # CHECK-NEXT:       } {
 # CHECK-NEXT:         choco.ast.literal() ["value" = 3 : !i32]
 # CHECK-NEXT:       }
